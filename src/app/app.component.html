@@ -1,0 +1,25 @@
+<div class="background">
+  <div class="flex-column">
+    <mat-card class="card">
+      <h1 class="flex-column">Typing Challenge</h1>
+      <p>
+        <span [class]="compare(letter, enteredText[i])" 
+        *ngFor="let letter of randomText.split(''); let i = index;">
+          {{ letter }}
+        </span>
+      </p>
+      <mat-form-field class="full-width">
+        <mat-label>Enter the sentence above</mat-label>
+        <input [disabled]="end" class="input" matInput [value]="enteredText" (input)="onInput($event.target.value)" >
+      </mat-form-field>
+      <div class="flex-column">
+        <span>Your wpm is: {{ WPM }}</span>
+        <span> {{ timeLeft }} seconds left </span>
+      <button [disabled]="!end" (click)="onReset()" mat-icon-button color="primary">
+        Reset
+      </button>
+      </div>
+    </mat-card>
+  </div>
+
+</div>
